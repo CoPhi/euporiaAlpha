@@ -1,4 +1,4 @@
-package euporia.database;
+package euporia.database.catalogues;
 
 import javax.persistence.*;
 
@@ -10,11 +10,14 @@ public class Catalogue {
     private Long id;
 
     @ManyToOne
+    @Column(nullable = false)
     @JoinColumn(name = "object_id", foreignKey = @ForeignKey(name = "OBJECT_ID_FK"))
     private CatalogueObject object;
 
+    @Column(nullable = false)
     private String type;
 
+    @Column(nullable = false)
     private String name;
 
     public Catalogue(){}

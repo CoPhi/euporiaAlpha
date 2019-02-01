@@ -1,4 +1,4 @@
-package euporia.database;
+package euporia.database.catalogues;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

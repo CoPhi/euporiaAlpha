@@ -1,7 +1,7 @@
 package euporia;
 
-import euporia.database.Catalogue;
-import euporia.database.CatalogueObject;
+import euporia.database.catalogues.Catalogue;
+import euporia.database.catalogues.CatalogueObject;
 import junit.framework.TestCase;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
