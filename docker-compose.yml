@@ -1,0 +1,21 @@
+# Example of a docker-compose.yml that can be used to run the project. You should change all the
+# passwords as they're given just for example. If you keep this project as a git one, remember to
+# ignore any file which may contain passwords or sensitive information.
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    container_name: euporiaDb  # Give the container a name which you can use to easily interact with it later
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: euporia
+      MYSQL_USER: euser
+      MYSQL_PASSWORD: euTest1234
+    ports:
+      - 127.0.0.1:3306:3306  # Expose the localhost 3306 port to connect to MariaDB from outside docker
+    volumes:
+      - mariadb_vol:/var/lib/mysql
+
+volumes:
+  mariadb_vol:

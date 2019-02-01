@@ -22,8 +22,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.0.Final</version>
-            <type>pom</type>
+            <version>5.4.1.Final</version>
         </dependency>
 
         <dependency>
@@ -46,4 +45,18 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+    </build>
 </project>
