@@ -1,6 +1,5 @@
 # EuporiaAlpha
 
-## About Euporia
 Euporia is an annotation tool mainly aimed to digital philologists, offering them the 
 possibility of uploading and tagging documents, for later use in a search system or the like.  
 Moreover, the tool offers a versioning systems for the documents, meaning that you can 
