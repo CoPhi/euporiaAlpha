@@ -1,8 +1,7 @@
 package euporia.database.documents;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "Containers")
 public class Containers {
@@ -11,14 +10,23 @@ public class Containers {
     @GeneratedValue
     private long id;
 
-    // TODO division
+    @ManyToOne
+    @Column(nullable = false)
+    @JoinColumn(name = "divison_id", foreignKey = @ForeignKey(name = "CONTAINERS_DIVISION_ID_FK"))
+    private Divisions division;
 
+    @Column(nullable = false)
     private int position;
+
+    @ManyToMany
+    private List<Blocks> blocks;
 
     public Containers(){}
 
-    public Containers(int position) {
+    public Containers(Divisions division, int position, List<Blocks> blocks) {
+        this.division = division;
         this.position = position;
+        this.blocks = blocks;
     }
 
     public long getId() {
@@ -35,5 +43,21 @@ public class Containers {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public Divisions getDivision() {
+        return division;
+    }
+
+    public void setDivision(Divisions division) {
+        this.division = division;
+    }
+
+    public List<Blocks> getBlocks() {
+        return blocks;
+    }
+
+    public void setBlocks(List<Blocks> blocks) {
+        this.blocks = blocks;
     }
 }
