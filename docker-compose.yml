@@ -13,7 +13,7 @@ services:
       MYSQL_USER: euser
       MYSQL_PASSWORD: euTest1234
     ports:
-      - 127.0.0.1:3306:3306  # Expose the localhost 3306 port to connect to MariaDB from outside docker
+      - 127.0.0.1:3336:3306  # Expose the localhost 3306 port to connect to MariaDB from outside docker
     volumes:
       - mariadb_vol:/var/lib/mysql
 
