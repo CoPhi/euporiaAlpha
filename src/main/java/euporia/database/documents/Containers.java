@@ -11,7 +11,6 @@ public class Containers {
     private long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "divison_id", foreignKey = @ForeignKey(name = "CONTAINERS_DIVISION_ID_FK"))
     private Divisions division;
 

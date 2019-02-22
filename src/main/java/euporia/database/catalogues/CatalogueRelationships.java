@@ -9,12 +9,10 @@ public class CatalogueRelationships {
     private long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "catalogue_ref", foreignKey = @ForeignKey(name = "CATALOGUE_REF_FK"))
     private Catalogue catalogue;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "catalogue_parent", foreignKey = @ForeignKey(name = "CATALOGUE_PARENT_FK"))
     private Catalogue parent;
 

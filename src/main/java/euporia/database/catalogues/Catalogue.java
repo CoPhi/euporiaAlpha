@@ -10,7 +10,6 @@ public class Catalogue {
     private Long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "object_id", foreignKey = @ForeignKey(name = "OBJECT_ID_FK"))
     private CatalogueObject object;
 
