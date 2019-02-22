@@ -24,6 +24,7 @@ public class DatabaseTests extends TestCase {
             sources.addAnnotatedClass(CatalogueObject.class);
             sessionFactory = sources.buildMetadata().getSessionFactoryBuilder().build();
         } catch (Exception e) {
+            e.printStackTrace();
             StandardServiceRegistryBuilder.destroy(registry);
         }
     }

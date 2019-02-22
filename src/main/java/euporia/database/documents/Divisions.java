@@ -13,12 +13,10 @@ public class Divisions {
     private long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "catalogue_object_id", foreignKey = @ForeignKey(name = "DIVISIONS_OBJECT_ID_FK"))
     private CatalogueObject object;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "catalogue_id", foreignKey = @ForeignKey(name = "DIVISIONS_OBJECT_ID_FK"))
     private Catalogue catalogue;
 

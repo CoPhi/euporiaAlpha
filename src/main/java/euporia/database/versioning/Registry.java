@@ -13,23 +13,19 @@ public class Registry {
     private long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "catalogue_object_id", foreignKey = @ForeignKey(name = "REGISTRY_CATALOGUE_OBJECT_ID_FK"))
     private CatalogueObject object;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "status_id", foreignKey = @ForeignKey(name = "REGISTRY_STATUS_ID_FK"))
     private Status status;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "action_id", foreignKey = @ForeignKey(name = "REGISTRY_ACTION_ID_FK"))
     private Actions action;
 
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "history_id", foreignKey = @ForeignKey(name = "REGISTRY_HISTORY_ID_FK"))
     private History history;
 

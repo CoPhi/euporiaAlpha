@@ -9,7 +9,6 @@ public class History {
     private long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "registry_id", foreignKey = @ForeignKey(name = "HISTORY_REGISTRY_ID_FK"))
     private Registry registry;
 

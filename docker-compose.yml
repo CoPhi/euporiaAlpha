@@ -16,6 +16,18 @@ services:
       - 127.0.0.1:3306:3306  # Expose the localhost 3306 port to connect to MariaDB from outside docker
     volumes:
       - mariadb_vol:/var/lib/mysql
+  phpadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=euser
+      - PMA_PASSWORD=euTest1234
+    ports:
+      - 127.0.0.1:8080:80
+    depends_on:
+      - db
 
 volumes:
   mariadb_vol:

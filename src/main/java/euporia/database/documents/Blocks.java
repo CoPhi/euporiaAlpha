@@ -13,7 +13,6 @@ public class Blocks {
     private long id;
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name = "object_id", foreignKey = @ForeignKey(name = "BLOCK_OBJECT_FK"))
     private CatalogueObject object;
 
