@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestWebsocket</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Wait for document to be fully loaded
+        document.addEventListener("DOMContentLoaded", function (event) {
+            // Initializations
+            let username = document.getElementById("user_id");
+            let name = document.getElementById("name_id");
+            let lastName = document.getElementById("lastname_id");
+            let connBtn = document.getElementById("connect_btn_id");
+            let message = document.getElementById("message_id");
+            let sendMsg = document.getElementById("send_msg_ws_id");
+            let communications = document.getElementById("communications_id");
+
+            // websocket connection
+            let ws = null;
+
+            connBtn.onclick = function () {
+                ws = new WebSocket("ws://127.0.0.1:8080/wstest?username=" + username.value);
+                ws.onmessage = function (event) {
+                    communications.innerHTML += "<p>" + event.data + "</p>";
+                }
+            };
+
+            sendMsg.onclick = function () {
+                let msg = {from: {username: username.value, firstName: name.value, lastName: lastName.value},
+                    content: message.value};
+                ws.send(JSON.stringify(msg))
+            }
+        });
+    </script>
+
+    <div style="display: flex; flex-direction: column; width: 20%;">
+        <label for="user_id">Username</label>
+        <input id="user_id" type="text" name="username">
+
+        <label for="name_id">Name</label>
+        <input id="name_id" type="text" name="name">
+
+        <label for="lastname_id">Last name</label>
+        <input id="lastname_id" type="text" name="lastname">
+        <button id="connect_btn_id" style="margin-top: 2rem;">Connect</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; width: 20%; margin-top: 5rem;">
+        <label for="message_id">Write message</label>
+        <input id="message_id" type="text">
+        <button id="send_msg_ws_id" style="margin-top: 1.5rem;">Send</button>
+    </div>
+
+    <h5>Websocket communications</h5>
+    <div id="communications_id"></div>
+</body>
+</html>
