@@ -5,7 +5,6 @@ import euporia.json.MessageDecoder;
 import euporia.json.MessageEncoder;
 
 import javax.websocket.*;
-import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,8 +15,10 @@ public class WebSocketTest {
     private static ConcurrentHashMap<String, Session> connMap = new ConcurrentHashMap<>();
 
     @OnOpen
-    public void onOpen(Session session, @PathParam("username") String username) throws IOException {
+    public void onOpen(Session session) throws IOException {
         // add user in the HashMap with this session as value
+        // TODO we do not use PathParam as it seems to cause problems with TomCat
+        String username = session.getRequestParameterMap().get("username").get(0);
         connMap.put(username, session);
         session.getBasicRemote().sendText("{\"success\": \"connected\"}");
     }
@@ -39,5 +40,10 @@ public class WebSocketTest {
     @OnClose
     public void onClose(Session session) throws IOException {
        // TODO remove this session from the active ones
+    }
+
+    @OnError
+    public void onError(Session session, Throwable t) throws IOException {
+        t.printStackTrace();
     }
 }
