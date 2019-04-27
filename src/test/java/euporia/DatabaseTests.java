@@ -17,6 +17,7 @@ public class DatabaseTests extends TestCase {
 
     @Override
     protected void setUp() throws Exception {
+        super.setUp();
         final ServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         try {
             MetadataSources sources = new MetadataSources(registry);

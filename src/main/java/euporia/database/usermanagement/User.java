@@ -3,7 +3,7 @@ package euporia.database.usermanagement;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "User")
+@Entity(name = "Users")
 public class User {
 
     @Id
