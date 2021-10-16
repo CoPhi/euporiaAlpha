@@ -1,4 +1,4 @@
-#rev 0.3
+#rev 0.4
 # EuporiaAlpha
 
 Euporia is an annotation tool mainly aimed to digital philologists, offering them the 
